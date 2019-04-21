@@ -1,0 +1,49 @@
+{
+  "name": "redis-backend",
+  "version": "1.0.0",
+  "description": "redis server with node js and mongodb",
+  "scripts": {
+    "start": "node ./dist/bin/www/server.js",
+    "dev": "nodemon --watch ./ --exec babel-node ./src/bin/www/server.js --config nodemon.json",
+    "debug": "node inspect ./src/app.js",
+    "lint": "eslint **/*.js --fix",
+    "build": "babel src --out-dir dist",
+    "serve": "node ./dist/bin/www/server.js"
+  },
+  "files": [
+    "dist",
+    "src"
+  ],
+  "cacheDirectories": [
+    "node_modules"
+  ],
+  "author": {
+    "name": "Vivek Anand Sharma",
+    "email": "sharma_vivek62@yahoo.com"
+  },
+  "license": "ISC",
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run lint"
+    }
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.4.3",
+    "@babel/node": "^7.2.2",
+    "@babel/plugin-transform-runtime": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "@babel/runtime": "^7.4.3",
+    "eslint": "^5.12.0",
+    "husky": "^1.3.1",
+    "eslint-plugin-security": "^1.4.0",
+    "nodemon": "^1.18.9"
+  },
+  "dependencies": {
+    "await-to-js": "^2.1.1",
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "mongoose": "^5.5.2",
+    "redis": "^2.8.0"
+  }
+}
