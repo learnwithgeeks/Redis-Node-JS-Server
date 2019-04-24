@@ -6,7 +6,6 @@
 3) Serve project with 'npm run serve' command.  
 
 ## if you are using docker then run
-1) docker build . command for running dockerFile locally. 
-2) docker stack deploy -c docker-compose.yml <Your App Name> command locally for running docker swarm services redis and mongodb.  
+1) docker stack deploy --compose-file docker-compose.yml <Your App Name> command locally for running docker swarm services redis and mongodb.  
 
 # Thank You 

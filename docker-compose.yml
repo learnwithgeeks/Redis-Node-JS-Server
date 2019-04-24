@@ -4,12 +4,12 @@ services:
   redis:
     image: redis:5.0-alpine # our image path
     ports: # node js Listen on port
-      - "2000:6379"
+      - "32760:6379"
     depends_on:
       - mongo
   mongo: # This is our other serivce name used for mongodb
-    image: mongo #service image path
+    image: mongo:latest #service image path
     ports: # mongodb port
-      - "1000:27017"
+      - "32768:27017"
     volumes: # mongodb data volume storage
       - "./data:/data/db"
