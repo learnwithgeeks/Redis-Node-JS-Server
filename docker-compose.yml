@@ -2,14 +2,19 @@
 version: "3" #Using version 3 of docker compose for services
 services:
   redis:
-    image: redis:5.0-alpine # our image path
-    ports: # node js Listen on port
-      - "32760:6379"
+    image: redis:5.0-alpine 
+    ports: 
+      - 32760:6379
     depends_on:
       - mongo
-  mongo: # This is our other serivce name used for mongodb
-    image: mongo:latest #service image path
-    ports: # mongodb port
-      - "32768:27017"
-    volumes: # mongodb data volume storage
-      - "./data:/data/db"
+  mongodb:
+    image: mongo:3.6.1
+    volumes:
+      - mongodb:/data/db
+      - mongodb_config:/data/configdb
+    ports:
+      - 32761:27017
+    command: mongod
+volumes:
+  mongodb:
+  mongodb_config:

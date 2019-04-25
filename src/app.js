@@ -1,20 +1,20 @@
 // This is our main app js file
 
+// Importing 3rd Party Module
 import express from "express";
-import mongoose from "mongoose";
+
+// Importing Express Container
 const app = express();
-var redisClient = require("redis").createClient;
 
-mongoose.connect("mongodb://192.168.99.101:32768", err => {
-  if (err) {
-    console.log(err);
-  } else {
-    console.log("Database is connected");
-    var redis = redisClient(32760, "192.168.99.101");
-    redis.on("error", function(err) {
-      console.log("Error " + err);
-    });
-  }
-});
+// Importing User Defined Modules
+import db from "./app.db";
+import { urlEndcoded, json, logger, router } from "./app.middleware";
 
+// Middlewares
+app.use(urlEndcoded);
+app.use(json);
+app.use(logger);
+app.use(router);
+
+// Exporting app
 export { app };
