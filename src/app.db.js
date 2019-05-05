@@ -8,13 +8,13 @@ import redis from "async-redis";
 let client;
 
 // Connection For Mongodb and Redis
-mongoose.connect("mongodb://192.168.99.100:32761", err => {
+mongoose.connect("mongodb://192.168.99.100:32761" , err => {
   if (err) {
     console.log(err);
   } else {
     console.log("Database is connected");
-    client = redis.createClient(32760, "192.168.99.100");
-    client.on("error", function(err) {
+    client = redis.createClient(32760 , "192.168.99.100");
+    client.on("error" , function(err) {
       console.log("Error " + err);
     });
   }
