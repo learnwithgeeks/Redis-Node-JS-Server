@@ -8,7 +8,9 @@
     "debug": "node inspect ./src/app.js",
     "lint": "eslint **/*.js --fix",
     "build": "babel src --out-dir dist",
-    "serve": "node ./dist/bin/www/server.js"
+    "serve": "node ./dist/bin/www/server.js",
+    "snyk-protect": "snyk protect",
+    "prepare": "npm run snyk-protect"
   },
   "files": [
     "dist",
@@ -45,6 +47,8 @@
     "body-parser": "^1.18.3",
     "celebrate": "^9.1.0",
     "express": "^4.16.4",
-    "mongoose": "^5.5.2"
-  }
+    "mongoose": "^5.5.2",
+    "snyk": "^1.189.0"
+  },
+  "snyk": true
 }
